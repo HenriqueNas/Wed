@@ -1,39 +1,57 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Dart Web Framework
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+This is a simple web framework for Dart, inspired by React and using Flutter syntax. It provides a set of basic components and a global method for rendering the application.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+## Components
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+The framework currently provides two components:
 
-## Features
+### `Component`
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+This is a basic component that can be used as a base for other components. It provides a set of common properties such as `className`, `style`, and `children`. 
 
-## Getting started
+### `Div`
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+This component represents an HTML `<div>` element and provides all the common styles for this element.
 
-## Usage
+## Style Props
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+The `CssBaseProps` class provides a set of common CSS style properties that can be used to style the components.
+
+## Rendering
+
+The `renderApp` function is used to render the application by creating an instance of the root component and mounting it to the specified element.
+
+## Example
 
 ```dart
-const like = 'sample';
-```
+import 'dart:html';
+import 'package:web_framework/web_framework.dart';
 
-## Additional information
+void main() {
+  final appElement = querySelector('#app');
+  final component = Div(
+    style: CssStyle(
+      width: CssValue.px(400),
+      height: CssValue.px(400),
+      backgroundColor: CssColor.fromHex('#f0f0f0'),
+      display: CssDisplay.flex,
+      alignItems: CssAlignItems.center,
+      justifyContent: CssJustifyContent.center,
+      borderRadius: CssValue.px(8),
+    ),
+    children: [
+      Component(
+        style: CssStyle(
+          color: CssColor.black,
+          fontSize: CssValue.px(32),
+        ),
+        children: [
+          'Hello, World!',
+        ],
+      ),
+    ],
+  );
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+  renderApp(component, appElement);
+}
