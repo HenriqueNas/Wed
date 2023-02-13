@@ -26,25 +26,27 @@ The `renderApp` function is used to render the application by creating an instan
 
 ```dart
 import 'dart:html';
-import 'package:web_framework/web_framework.dart';
+import 'package:web/web.dart';
 
 void main() {
   final appElement = querySelector('#app');
   final component = Div(
-    style: CssStyle(
-      width: CssValue.px(400),
-      height: CssValue.px(400),
-      backgroundColor: CssColor.fromHex('#f0f0f0'),
-      display: CssDisplay.flex,
-      alignItems: CssAlignItems.center,
-      justifyContent: CssJustifyContent.center,
-      borderRadius: CssValue.px(8),
+    style: CssBaseProps(
+      // for now all CssBaseProps attributes are nullable Strings
+      // I'm working on typed CSS properties
+      width: '400px',
+      height: '400px',
+      backgroundColor: '#f0f0f0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '10px',
     ),
     children: [
       Component(
-        style: CssStyle(
-          color: CssColor.black,
-          fontSize: CssValue.px(32),
+        style: CssBaseProps(
+          color: '#000',
+          fontSize: '24px',
         ),
         children: [
           'Hello, World!',

@@ -32,7 +32,7 @@ void renderApp(Component component, Element element) {
 /// The Component class is abstract, so you can't create instances of it directly.
 /// Instead, you should create subclasses for each HTML tag that you want to use in your application.
 /// In the example you provided, you would need a Div subclass that extends Component.
-class Component {
+abstract class Component {
   late final Element _root;
   final CssBaseProps? styles;
   final List<Component>? children;
