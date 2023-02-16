@@ -8,21 +8,21 @@ The Wed Framework is a simple web framework for Dart, inspired by React and usin
 
 To use the Wed framework, first you'll need to create a new Dart web project and add the wed package to your pubspec.yaml file:
 
-´´´yaml
+```yaml
 dependencies:
   wed: ^0.0.2
-´´´
+```
 
 Or just run the following command:
-´´´bash
+```bash
 $ dart pub add wed
-´´´
+```
 
 ### Using
 
 Then, you can import the package into your project and start using the provided components:
 
-´´´dart
+```dart
 import 'dart:html';
 
 import 'package:wed/src/tags/button/button.dart';
@@ -64,8 +64,7 @@ void main() {
 
   renderApp(component, app);
 }
-
-´´´
+```
 
 _**important:** Change your index.html first div tag to have id as "app", to use the code below._
 
