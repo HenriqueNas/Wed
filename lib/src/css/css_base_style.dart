@@ -1,5 +1,7 @@
 import 'dart:html';
 
+import 'package:wed/src/css/props/border_radius.dart';
+
 /// The [CssBaseStyle] class is a base class that defines a set of common CSS properties.
 ///
 /// It's used as a base class for the more specific CssXyzProps classes, such as CssDivProps and CssButtonProps.
@@ -7,7 +9,7 @@ import 'dart:html';
 class CssBaseStyle {
   final String? backgroundColor;
   final String? borderColor;
-  final String? borderRadius;
+  final BorderRadius? borderRadius;
   final String? borderStyle;
   final String? borderWidth;
   final String? color;
@@ -69,7 +71,7 @@ class CssBaseStyle {
     return {
       'background-color': backgroundColor,
       'border-color': borderColor,
-      'border-radius': borderRadius,
+      'border-radius': borderRadius?.value,
       'border-style': borderStyle,
       'border-width': borderWidth,
       'color': color,
@@ -113,7 +115,7 @@ class CssBaseStyle {
   CssBaseStyle copyWith({
     String? backgroundColor,
     String? borderColor,
-    String? borderRadius,
+    BorderRadius? borderRadius,
     String? borderStyle,
     String? borderWidth,
     String? color,

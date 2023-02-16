@@ -16,3 +16,10 @@
 ## 0.0.3
 
 - Update `README.md` file.
+
+## 0.0.4
+
+- Added `DivProps` class.
+- Added `BorderRadius` class css type.
+- Update `README.md` file.
+- Update lib example.

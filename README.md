@@ -25,23 +25,12 @@ Then, you can import the package into your project and start using the provided 
 ```dart
 import 'dart:html';
 
-import 'package:wed/src/tags/button/button.dart';
-import 'package:wed/src/tags/button/button_props.dart';
 import 'package:wed/wed.dart';
 
-final app = querySelector("#app") as DivElement;
+final app = querySelector("#output") as DivElement;
 
 void main() {
-  const styles = CssBaseStyle(
-    backgroundColor: 'red',
-    height: '100px',
-    width: '100px',
-    alignItems: 'center',
-    justifyContent: 'center',
-    display: 'flex',
-  );
-
-  final child = Button(
+  final button = Button(
     props: ButtonProps(
       text: 'Click me',
       onClick: () => print('Clicked'),
@@ -49,21 +38,46 @@ void main() {
         height: '50px',
         width: '150px',
         textAlign: 'center',
+        color: 'white',
+        backgroundColor: 'purple',
       ),
     ),
   );
 
+  final div = Div(
+    props: DivProps(
+      children: [button],
+      styles: CssBaseStyle(
+        height: '300px',
+        width: '300px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        borderRadius: BorderRadius.all(50),
+      ),
+    ),
+  );
+
+  const componentStyle = CssBaseStyle(
+    height: '100vh',
+    width: '100vw',
+    backgroundColor: 'blue',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  );
+
   final component = Div(
-    key: '',
-    ref: '',
-    props: ComponentBaseProps(
-      styles: styles,
-      children: [child],
+    props: DivProps(
+      styles: componentStyle,
+      children: [div],
     ),
   );
 
   renderApp(component, app);
 }
+
 ```
 
 _**important:** Change your index.html first div tag to have id as "app", to use the code below._
