@@ -1,59 +1,151 @@
-# Dart Web Framework
+# Wed Framework
 
-This is a simple web framework for Dart, inspired by React and using Flutter syntax. It provides a set of basic components and a global method for rendering the application.
+The Wed Framework is a simple web framework for Dart, inspired by React and using Flutter syntax. It provides a set of basic components and a global method for rendering the application.
 
-## Components
+## Getting Started
 
-The framework currently provides two components:
+### Installing
 
-### `Component`
+To use the Wed framework, first you'll need to create a new Dart web project and add the wed package to your pubspec.yaml file:
 
-This is a basic component that can be used as a base for other components. It provides a set of common properties such as `className`, `style`, and `children`. 
+´´´yaml
+dependencies:
+  wed: ^1.0.0
+´´´
 
-### `Div`
+Or just run the following command:
+´´´bash
+$ dart pub add wed
+´´´
 
-This component represents an HTML `<div>` element and provides all the common styles for this element.
+### Using
 
-## Style Props
+Then, you can import the package into your project and start using the provided components:
 
-The `CssBaseProps` class provides a set of common CSS style properties that can be used to style the components.
-
-## Rendering
-
-The `renderApp` function is used to render the application by creating an instance of the root component and mounting it to the specified element.
-
-## Example
-
-```dart
+´´´dart
 import 'dart:html';
-import 'package:web/web.dart';
+
+import 'package:wed/src/tags/button/button.dart';
+import 'package:wed/src/tags/button/button_props.dart';
+import 'package:wed/wed.dart';
+
+final app = querySelector("#app") as DivElement;
 
 void main() {
-  final appElement = querySelector('#app');
-  final component = Div(
-    style: CssBaseProps(
-      // for now all CssBaseProps attributes are nullable Strings
-      // I'm working on typed CSS properties
-      width: '400px',
-      height: '400px',
-      backgroundColor: '#f0f0f0',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '10px',
-    ),
-    children: [
-      Component(
-        style: CssBaseProps(
-          color: '#000',
-          fontSize: '24px',
-        ),
-        children: [
-          'Hello, World!',
-        ],
-      ),
-    ],
+  const styles = CssBaseStyle(
+    backgroundColor: 'red',
+    height: '100px',
+    width: '100px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
   );
 
-  renderApp(component, appElement);
+  final child = Button(
+    props: ButtonProps(
+      text: 'Click me',
+      onClick: () => print('Clicked'),
+      styles: CssBaseStyle(
+        height: '50px',
+        width: '150px',
+        textAlign: 'center',
+      ),
+    ),
+  );
+
+  final component = Div(
+    key: '',
+    ref: '',
+    props: ComponentBaseProps(
+      styles: styles,
+      children: [child],
+    ),
+  );
+
+  renderApp(component, app);
 }
+
+´´´
+
+_**important:** Change your index.html first div tag to have id as "app", to use the code below._
+
+## Classes and Helpers
+
+The `Component` class is the base class for all components, and it contains a basic set of methods for rendering the component and updating its state.
+
+### `Component` Class
+
+The `Component` class contains the following methods:
+
+- `render()`: This method returns a `Widget` object that represents the component's current state.
+- `update()`: This method updates the component's state and triggers a re-render.
+- `setState()`: This method allows the component's state to be updated, triggering a re-render.
+
+### `ComponentBaseProps` Class
+
+The `ComponentBaseProps` class is the base class for all component props classes.
+
+### `Div` Class
+
+The `Div` class is a basic container component.
+
+### `Button` Class
+
+The `Button` class is a basic button component.
+
+## CSS
+
+The framework also provides a basic set of CSS classes and utilities.
+
+### `CSSProps` Class
+
+The `CSSProps` class is the base class for all CSS properties.
+
+### `CSSBaseStyle` Class
+
+The `CSSBaseStyle` class is the base class for all CSS styles.
+
+### `BorderRadius` Class
+
+The `BorderRadius` class represents the border radius property for CSS.
+
+
+## Project Structure
+
+The project is structured as follows:
+
+web/
+├── lib/
+│ ├── src/
+│ │ ├── component/
+│ │ │ ├── component_base_props.dart
+│ │ │ └── component.dart
+│ │ ├── css/
+│ │ │ ├── props/
+│ │ │ │ ├── border_radius.dart
+│ │ │ │ └── css_props.dart
+│ │ │ └── css_base_style.dart
+│ │ └── div.dart
+│ │ └── fundamentals.dart
+│ ├── tags/
+│ │ ├── button/
+│ │ │ ├── button_props.dart
+│ │ │ └── button.dart
+│ │ └── div.dart
+│ └── web.dart
+├── pubspec.yaml
+├── README.md
+└── LICENSE
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions or improvements, please open an issue or submit a pull request.
+
+## Authors
+
+- Henrique Nascimento - Initial work - [@HenriqueNas](https://github.com/henriquenas)
+
+## License
+
+The Wed Framework is licensed under the [MIT License](./LICENSE).
+
