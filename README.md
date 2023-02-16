@@ -10,7 +10,7 @@ To use the Wed framework, first you'll need to create a new Dart web project and
 
 ```yaml
 dependencies:
-  wed: ^0.0.2
+  wed: ^0.0.4
 ```
 
 Or just run the following command:
