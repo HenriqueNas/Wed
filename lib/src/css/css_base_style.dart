@@ -1,10 +1,10 @@
 import 'dart:html';
 
-/// The CssBaseProps class is a base class that defines a set of common CSS properties.
+/// The [CssBaseStyle] class is a base class that defines a set of common CSS properties.
 ///
 /// It's used as a base class for the more specific CssXyzProps classes, such as CssDivProps and CssButtonProps.
 ///
-class CssBaseProps {
+class CssBaseStyle {
   final String? backgroundColor;
   final String? borderColor;
   final String? borderRadius;
@@ -34,7 +34,7 @@ class CssBaseProps {
   final String? alignItems;
   final String? justifyContent;
 
-  const CssBaseProps({
+  const CssBaseStyle({
     this.backgroundColor,
     this.borderColor,
     this.borderRadius,
@@ -100,11 +100,75 @@ class CssBaseProps {
 
   CssStyleDeclaration toStyle() {
     final style = CssStyleDeclaration();
+
     toMap().forEach((key, value) {
       if (value != null) {
         style.setProperty(key, value);
       }
     });
+
     return style;
+  }
+
+  CssBaseStyle copyWith({
+    String? backgroundColor,
+    String? borderColor,
+    String? borderRadius,
+    String? borderStyle,
+    String? borderWidth,
+    String? color,
+    String? display,
+    String? fontFamily,
+    String? fontSize,
+    String? fontStyle,
+    String? fontWeight,
+    String? height,
+    String? margin,
+    String? marginBottom,
+    String? marginLeft,
+    String? marginRight,
+    String? marginTop,
+    String? padding,
+    String? paddingBottom,
+    String? paddingLeft,
+    String? paddingRight,
+    String? paddingTop,
+    String? textAlign,
+    String? textDecoration,
+    String? textTransform,
+    String? width,
+    String? alignItems,
+    String? justifyContent,
+  }) {
+    return CssBaseStyle(
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      borderColor: borderColor ?? this.borderColor,
+      borderRadius: borderRadius ?? this.borderRadius,
+      borderStyle: borderStyle ?? this.borderStyle,
+      borderWidth: borderWidth ?? this.borderWidth,
+      color: color ?? this.color,
+      display: display ?? this.display,
+      fontFamily: fontFamily ?? this.fontFamily,
+      fontSize: fontSize ?? this.fontSize,
+      fontStyle: fontStyle ?? this.fontStyle,
+      fontWeight: fontWeight ?? this.fontWeight,
+      height: height ?? this.height,
+      margin: margin ?? this.margin,
+      marginBottom: marginBottom ?? this.marginBottom,
+      marginLeft: marginLeft ?? this.marginLeft,
+      marginRight: marginRight ?? this.marginRight,
+      marginTop: marginTop ?? this.marginTop,
+      padding: padding ?? this.padding,
+      paddingBottom: paddingBottom ?? this.paddingBottom,
+      paddingLeft: paddingLeft ?? this.paddingLeft,
+      paddingRight: paddingRight ?? this.paddingRight,
+      paddingTop: paddingTop ?? this.paddingTop,
+      textAlign: textAlign ?? this.textAlign,
+      textDecoration: textDecoration ?? this.textDecoration,
+      textTransform: textTransform ?? this.textTransform,
+      width: width ?? this.width,
+      alignItems: alignItems ?? this.alignItems,
+      justifyContent: justifyContent ?? this.justifyContent,
+    );
   }
 }
