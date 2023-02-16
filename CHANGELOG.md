@@ -12,3 +12,7 @@
 - Added `ButtonProps` class.
 - Refactor `README.md` file.
 - New `LICENSE` file.
+
+## 0.0.3
+
+- Update `README.md` file.

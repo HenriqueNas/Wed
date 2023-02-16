@@ -1,6 +1,6 @@
 name: wed
 description: A web Dart framework, for create declarative UIs.
-version: 0.0.2
+version: 0.0.3
 homepage: https://www.henriquenas.dev/wed
 
 environment:
