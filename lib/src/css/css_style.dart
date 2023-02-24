@@ -29,8 +29,13 @@ class CssStyle {
   final Padding? padding;
   final TextAlign? textAlign;
   final Cursor? cursor;
+  final String? border;
+  final String? boxShadow;
+  final String? boxSizing;
 
   const CssStyle({
+    this.border,
+    this.boxShadow,
     this.cursor,
     this.backgroundColor,
     this.borderColor,
@@ -53,6 +58,7 @@ class CssStyle {
     this.alignItems,
     this.justifyContent,
     this.flexDirection,
+    this.boxSizing,
   });
 
   Map<String, String?> toMap() {
@@ -79,6 +85,9 @@ class CssStyle {
       'justify-content': justifyContent?.value,
       'flex-direction': flexDirection?.value,
       'cursor': cursor?.value,
+      'border': border,
+      'box-shadow': boxShadow,
+      'box-sizing': boxSizing,
     };
   }
 
@@ -118,6 +127,9 @@ class CssStyle {
       justifyContent: other.justifyContent,
       flexDirection: other.flexDirection,
       cursor: other.cursor,
+      border: other.border,
+      boxShadow: other.boxShadow,
+      boxSizing: other.boxSizing,
     );
   }
 
@@ -152,6 +164,9 @@ class CssStyle {
     String? textTransform,
     String? width,
     Cursor? cursor,
+    String? border,
+    String? boxShadow,
+    String? boxSizing,
   }) {
     return CssStyle(
       cursor: cursor ?? this.cursor,
@@ -176,6 +191,9 @@ class CssStyle {
       alignItems: alignItems ?? this.alignItems,
       justifyContent: justifyContent ?? this.justifyContent,
       flexDirection: flexDirection ?? this.flexDirection,
+      border: border ?? this.border,
+      boxShadow: boxShadow ?? this.boxShadow,
+      boxSizing: boxSizing ?? this.boxSizing,
     );
   }
 }

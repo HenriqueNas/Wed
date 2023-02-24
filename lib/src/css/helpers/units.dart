@@ -1,25 +1,29 @@
+// ignore_for_file: public_member_api_docs
 class Units {
-  final String _value;
-  String get value => _value;
-
   const Units._(this._value);
 
-  static px(int value) => Units._("$value${UnitsTypes.pixel.symbol}")._value;
+  final String _value;
 
-  static vh(int value) =>
-      Units._("$value${UnitsTypes.viewHeight.symbol}")._value;
+  String get value => _value;
 
-  static vw(int value) =>
-      Units._("$value${UnitsTypes.viewWidth.symbol}")._value;
+  static String px(double value) =>
+      Units._('$value${UnitsTypes.pixel.symbol}')._value;
 
-  static percent(int value) =>
-      Units._("$value${UnitsTypes.percentage.symbol}")._value;
+  static String vh(double value) =>
+      Units._('$value${UnitsTypes.viewHeight.symbol}')._value;
 
-  static rem(int value) => Units._("$value${UnitsTypes.rem.symbol}")._value;
+  static String vw(double value) =>
+      Units._('$value${UnitsTypes.viewWidth.symbol}')._value;
 
-  static get none => Units._("0")._value;
+  static String percent(double value) =>
+      Units._('$value${UnitsTypes.percentage.symbol}')._value;
 
-  call() => _value;
+  static String rem(double value) =>
+      Units._('$value${UnitsTypes.rem.symbol}')._value;
+
+  static String get none => const Units._('0')._value;
+
+  String call() => _value;
 }
 
 enum UnitsTypes {
