@@ -1,13 +1,47 @@
-import 'package:wed/src/component/component_base_props.dart';
+import 'dart:html';
 
-class ButtonProps extends ComponentBaseProps {
-  final String? text;
-  final Function()? onClick;
+import '../../../wed.dart';
 
-  const ButtonProps({
-    this.text,
+class ButtonProps extends GlobalProps<ButtonElement> {
+  String? innerText;
+  bool? disabled;
+  void Function(MouseEvent event)? onClick;
+
+  ButtonProps({
     this.onClick,
+    this.disabled,
+    this.innerText,
     super.styles,
-    super.children,
+    super.id,
+    super.className,
   });
+
+  @override
+  void setStyles(ButtonElement root) {
+    super.setStyles(root);
+
+    root.innerText = innerText ?? '';
+    root.disabled = disabled ?? false;
+    root.onClick.listen((event) {
+      onClick?.call(event);
+    });
+  }
+
+  /// [update] checks if the props have changed and updates the [root] element.
+  @override
+  void updateStyles(ButtonElement root) {
+    super.updateStyles(root);
+
+    if (innerText != root.innerText) {
+      root.innerText = innerText ?? '';
+    }
+    if (disabled != root.disabled) {
+      root.disabled = disabled ?? false;
+    }
+    if (onClick != null) {
+      root.onClick.listen((event) {
+        onClick?.call(event);
+      });
+    }
+  }
 }

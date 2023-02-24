@@ -1,20 +1,20 @@
-import 'package:wed/src/component/component.dart';
+import 'dart:html';
 
-import 'button_props.dart';
+import '../../../wed.dart';
 
 /// A clickable button element.
-class Button extends Component<ButtonProps> {
+class Button extends Component<ButtonProps, ButtonElement> {
   /// Creates a new [Button] instance with the given props.
   Button({
     super.key,
-    super.ref,
-    super.props = const ButtonProps(),
-  }) : super(type: 'button') {
-    if (props != null) {
-      root.text = props!.text;
-      root.onClick.listen((event) {
-        props!.onClick?.call();
-      });
-    }
+    super.props,
+    this.children = const [],
+  }) : super(tag: Tags.button);
+
+  final List<Component> children;
+
+  @override
+  List<Component> build() {
+    return children;
   }
 }

@@ -1,8 +1,10 @@
 import '../../../wed.dart';
 
-class DivProps extends ComponentBaseProps {
+class DivProps extends GlobalProps {
   const DivProps({
+    super.id,
+    super.title,
     super.styles,
-    super.children,
+    super.className,
   });
 }
