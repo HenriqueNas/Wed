@@ -1,4 +1,4 @@
-import 'css_prop.dart';
+import '../../../../wed.dart';
 
 /// A class representing a border radius for a box.
 ///
@@ -19,7 +19,7 @@ import 'css_prop.dart';
 /// // Set a 5px border radius for the left side
 /// final borderRadius = BorderRadius.left(5);
 /// ```
-class BorderRadius extends CssProp {
+class BorderRadius extends CssBaseProps {
   final double topLeft;
   final double topRight;
   final double bottomLeft;
@@ -84,13 +84,9 @@ class BorderRadius extends CssProp {
   });
 
   @override
-  String get propName => 'border-radius';
+  String get name => 'border-radius';
 
   @override
-  String get value => toString();
-
-  /// Returns a string representation of this object.
-  @override
-  String toString() =>
+  String get value =>
       '${topLeft}px ${topRight}px ${bottomLeft}px ${bottomRight}px';
 }

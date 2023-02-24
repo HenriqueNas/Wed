@@ -1,42 +1,37 @@
 import 'dart:html';
 
-import 'package:wed/src/css/props/border_radius.dart';
+import '../../wed.dart';
 
-/// The [CssBaseStyle] class is a base class that defines a set of common CSS properties.
+/// The [CssStyle] class is a base class that defines a set of common CSS properties.
 ///
 /// It's used as a base class for the more specific CssXyzProps classes, such as CssDivProps and CssButtonProps.
 ///
-class CssBaseStyle {
+class CssStyle {
   final String? backgroundColor;
   final String? borderColor;
-  final BorderRadius? borderRadius;
   final String? borderStyle;
   final String? borderWidth;
   final String? color;
-  final String? display;
   final String? fontFamily;
   final String? fontSize;
   final String? fontStyle;
   final String? fontWeight;
   final String? height;
-  final String? margin;
-  final String? marginBottom;
-  final String? marginLeft;
-  final String? marginRight;
-  final String? marginTop;
-  final String? padding;
-  final String? paddingBottom;
-  final String? paddingLeft;
-  final String? paddingRight;
-  final String? paddingTop;
-  final String? textAlign;
   final String? textDecoration;
   final String? textTransform;
   final String? width;
-  final String? alignItems;
-  final String? justifyContent;
+  final BorderRadius? borderRadius;
+  final Display? display;
+  final AlignItems? alignItems;
+  final JustifyContent? justifyContent;
+  final FlexDirection? flexDirection;
+  final Margin? margin;
+  final Padding? padding;
+  final TextAlign? textAlign;
+  final Cursor? cursor;
 
-  const CssBaseStyle({
+  const CssStyle({
+    this.cursor,
     this.backgroundColor,
     this.borderColor,
     this.borderRadius,
@@ -50,21 +45,14 @@ class CssBaseStyle {
     this.fontWeight,
     this.height,
     this.margin,
-    this.marginBottom,
-    this.marginLeft,
-    this.marginRight,
-    this.marginTop,
     this.padding,
-    this.paddingBottom,
-    this.paddingLeft,
-    this.paddingRight,
-    this.paddingTop,
     this.textAlign,
     this.textDecoration,
     this.textTransform,
     this.width,
     this.alignItems,
     this.justifyContent,
+    this.flexDirection,
   });
 
   Map<String, String?> toMap() {
@@ -75,28 +63,22 @@ class CssBaseStyle {
       'border-style': borderStyle,
       'border-width': borderWidth,
       'color': color,
-      'display': display,
+      'display': display?.value,
       'font-family': fontFamily,
       'font-size': fontSize,
       'font-style': fontStyle,
       'font-weight': fontWeight,
       'height': height,
-      'margin': margin,
-      'margin-bottom': marginBottom,
-      'margin-left': marginLeft,
-      'margin-right': marginRight,
-      'margin-top': marginTop,
-      'padding': padding,
-      'padding-bottom': paddingBottom,
-      'padding-left': paddingLeft,
-      'padding-right': paddingRight,
-      'padding-top': paddingTop,
-      'text-align': textAlign,
+      'margin': margin?.value,
+      'padding': padding?.value,
+      'text-align': textAlign?.value,
       'text-decoration': textDecoration,
       'text-transform': textTransform,
       'width': width,
-      'align-items': alignItems,
-      'justify-content': justifyContent,
+      'align-items': alignItems?.value,
+      'justify-content': justifyContent?.value,
+      'flex-direction': flexDirection?.value,
+      'cursor': cursor?.value,
     };
   }
 
@@ -112,37 +94,67 @@ class CssBaseStyle {
     return style;
   }
 
-  CssBaseStyle copyWith({
+  CssStyle merge(CssStyle other) {
+    return copyWith(
+      backgroundColor: other.backgroundColor,
+      borderColor: other.borderColor,
+      borderRadius: other.borderRadius,
+      borderStyle: other.borderStyle,
+      borderWidth: other.borderWidth,
+      color: other.color,
+      display: other.display,
+      fontFamily: other.fontFamily,
+      fontSize: other.fontSize,
+      fontStyle: other.fontStyle,
+      fontWeight: other.fontWeight,
+      height: other.height,
+      margin: other.margin,
+      padding: other.padding,
+      textAlign: other.textAlign,
+      textDecoration: other.textDecoration,
+      textTransform: other.textTransform,
+      width: other.width,
+      alignItems: other.alignItems,
+      justifyContent: other.justifyContent,
+      flexDirection: other.flexDirection,
+      cursor: other.cursor,
+    );
+  }
+
+  CssStyle copyWith({
     String? backgroundColor,
     String? borderColor,
     BorderRadius? borderRadius,
     String? borderStyle,
     String? borderWidth,
     String? color,
-    String? display,
+    Display? display,
+    AlignItems? alignItems,
+    JustifyContent? justifyContent,
+    FlexDirection? flexDirection,
     String? fontFamily,
     String? fontSize,
     String? fontStyle,
     String? fontWeight,
     String? height,
-    String? margin,
+    Margin? margin,
     String? marginBottom,
     String? marginLeft,
     String? marginRight,
     String? marginTop,
-    String? padding,
+    Padding? padding,
     String? paddingBottom,
     String? paddingLeft,
     String? paddingRight,
     String? paddingTop,
-    String? textAlign,
+    TextAlign? textAlign,
     String? textDecoration,
     String? textTransform,
     String? width,
-    String? alignItems,
-    String? justifyContent,
+    Cursor? cursor,
   }) {
-    return CssBaseStyle(
+    return CssStyle(
+      cursor: cursor ?? this.cursor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       borderColor: borderColor ?? this.borderColor,
       borderRadius: borderRadius ?? this.borderRadius,
@@ -156,21 +168,14 @@ class CssBaseStyle {
       fontWeight: fontWeight ?? this.fontWeight,
       height: height ?? this.height,
       margin: margin ?? this.margin,
-      marginBottom: marginBottom ?? this.marginBottom,
-      marginLeft: marginLeft ?? this.marginLeft,
-      marginRight: marginRight ?? this.marginRight,
-      marginTop: marginTop ?? this.marginTop,
       padding: padding ?? this.padding,
-      paddingBottom: paddingBottom ?? this.paddingBottom,
-      paddingLeft: paddingLeft ?? this.paddingLeft,
-      paddingRight: paddingRight ?? this.paddingRight,
-      paddingTop: paddingTop ?? this.paddingTop,
       textAlign: textAlign ?? this.textAlign,
       textDecoration: textDecoration ?? this.textDecoration,
       textTransform: textTransform ?? this.textTransform,
       width: width ?? this.width,
       alignItems: alignItems ?? this.alignItems,
       justifyContent: justifyContent ?? this.justifyContent,
+      flexDirection: flexDirection ?? this.flexDirection,
     );
   }
 }
