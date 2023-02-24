@@ -6,11 +6,11 @@ The Wed Framework is a simple web framework for Dart, inspired by React and usin
 
 ### Installing
 
-To use the Wed framework, first you'll need to create a new Dart web project and add the wed package to your pubspec.yaml file:
+To use the Wed framework, first you'll need to create a new Dart web project and add the wed package to your _pubspec.yaml_ file:
 
 ```yaml
 dependencies:
-  wed: ^0.0.4
+  wed: ^0.0.5
 ```
 
 Or just run the following command:
@@ -30,57 +30,57 @@ import 'package:wed/wed.dart';
 final app = querySelector("#output") as DivElement;
 
 void main() {
-  final button = Button(
-    props: ButtonProps(
-      text: 'Click me',
-      onClick: () => print('Clicked'),
-      styles: CssBaseStyle(
-        height: '50px',
-        width: '150px',
-        textAlign: 'center',
-        color: 'white',
-        backgroundColor: 'purple',
+  renderApp(MyComponent(), app);
+}
+
+class MyComponent extends Component {
+  var text = 'Hello World';
+  var isClicked = false;
+
+  void toggleText() {
+    isClicked = !isClicked;
+    text = isClicked ? 'Clicked' : 'Hello World';
+  }
+
+  @override
+  List<Component> build() {
+    return [
+      Div(
+        props: DivProps(
+          styles: CssStyle(
+            width: Units.vw(100),
+            height: Units.vh(100),
+            backgroundColor: 'lightblue',
+          ).merge(DisplayFlex.center),
+        ),
+        children: [
+          Button(
+            props: ButtonProps(
+              innerText: text,
+              styles: CssStyle(
+                backgroundColor: 'blue',
+                fontSize: Units.rem(2),
+                color: 'white',
+                textAlign: TextAlign.center,
+                padding: Padding.symmetric(horizontal: 30, vertical: 20),
+                borderRadius: BorderRadius.all(12),
+                borderWidth: Units.none,
+                cursor: Cursor.pointer,
+              ),
+              onClick: (_) {
+                setState(() {
+                  toggleText();
+                });
+              },
+            ),
+          ),
+        ],
       ),
-    ),
-  );
-
-  final div = Div(
-    props: DivProps(
-      children: [button],
-      styles: CssBaseStyle(
-        height: '300px',
-        width: '300px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'white',
-        borderRadius: BorderRadius.all(50),
-      ),
-    ),
-  );
-
-  const componentStyle = CssBaseStyle(
-    height: '100vh',
-    width: '100vw',
-    backgroundColor: 'blue',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  );
-
-  final component = Div(
-    props: DivProps(
-      styles: componentStyle,
-      children: [div],
-    ),
-  );
-
-  renderApp(component, app);
+    ];
+  }
 }
 
 ```
-
-_**important:** Change your index.html first div tag to have id as "app", to use the code below._
 
 ## Classes and Helpers
 
@@ -91,64 +91,11 @@ The `Component` class is the base class for all components, and it contains a ba
 The `Component` class contains the following methods:
 
 - `render()`: This method returns a `Widget` object that represents the component's current state.
-- `update()`: This method updates the component's state and triggers a re-render.
 - `setState()`: This method allows the component's state to be updated, triggering a re-render.
 
-### `ComponentBaseProps` Class
+### `CssStyle` Class
 
 The `ComponentBaseProps` class is the base class for all component props classes.
-
-### `Div` Class
-
-The `Div` class is a basic container component.
-
-### `Button` Class
-
-The `Button` class is a basic button component.
-
-## CSS
-
-The framework also provides a basic set of CSS classes and utilities.
-
-### `CSSProps` Class
-
-The `CSSProps` class is the base class for all CSS properties.
-
-### `CSSBaseStyle` Class
-
-The `CSSBaseStyle` class is the base class for all CSS styles.
-
-### `BorderRadius` Class
-
-The `BorderRadius` class represents the border radius property for CSS.
-
-
-## Project Structure
-
-The project is structured as follows:
-
-web/
-├── lib/
-│ ├── src/
-│ │ ├── component/
-│ │ │ ├── component_base_props.dart
-│ │ │ └── component.dart
-│ │ ├── css/
-│ │ │ ├── props/
-│ │ │ │ ├── border_radius.dart
-│ │ │ │ └── css_props.dart
-│ │ │ └── css_base_style.dart
-│ │ └── div.dart
-│ │ └── fundamentals.dart
-│ ├── tags/
-│ │ ├── button/
-│ │ │ ├── button_props.dart
-│ │ │ └── button.dart
-│ │ └── div.dart
-│ └── web.dart
-├── pubspec.yaml
-├── README.md
-└── LICENSE
 
 ## Contributing
 
