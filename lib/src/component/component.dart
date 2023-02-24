@@ -1,40 +1,86 @@
 import 'dart:html';
 
-import 'package:wed/src/component/component_base_props.dart';
+import '../../wed.dart';
 
-/// The Component class is the core building block of the framework, and represents a single HTML element.
-/// Each Component instance can have its own set of properties and child components.
+/// The [Component] class is the core building block of the framework, representing a single HTML element.
 ///
-/// The Component class is abstract, so you can't create instances of it directly.
-/// Instead, you should create subclasses for each HTML tag that you want to use in your application.
-/// In the example you provided, you would need a Div subclass that extends Component.
-/// The base class for all components in the framework.
-abstract class Component<T extends ComponentBaseProps> {
-  late final Element _root;
-
-  /// The HTML tag name for this component.
-  final String type;
+/// This is an abstract class, so you can't create instances of it directly. Instead, you should create subclasses for each HTML tag that you want to use in your application.
+///
+/// When you create a subclass of [Component], you should specify two type parameters:
+///
+/// - [T]: The type of the props that the component will receive. This type should extend the [GlobalProps] class.
+/// - [K]: The type of the HTML element that the component will render. This type should extend the [Element] class.
+///
+/// For example, if you want to create a `div` component that accepts a `className` prop, you could define a subclass like this:
+///
+/// ```dart
+/// class Div extends Component<DivProps, DivElement> {
+///   Div({String? className, List<Component>? children})
+///     : super(
+///         props: DivProps(className: className),
+///         children: children,
+///         super.tag = Tags.div,
+///     );
+///
+///   @override
+///   List<Component> build() {
+///     return children [];
+///   }
+/// }
+/// ```
+///
+/// The [Component] class has three instance variables:
+///
+/// - [root]: The root element for this component.
+/// - [key]: The unique key for this component.
+/// - [props]: The props for this component.
+///
+/// When you create a new instance of a `Component` subclass, you can pass in props and a key as named arguments.
+///
+/// You can override the `build` method in your `Component` subclass to return a list of child components to render.
+///
+/// You can also use the `setState` method to update the state of the component and trigger a re-render.
+///
+/// Finally, the `element` and `node` getters provide access to the underlying HTML element and node, respectively.
+abstract class Component<T extends GlobalProps, K extends Element> {
+  /// The root element for this component.
+  final K _root;
 
   /// The unique key for this component.
-  final String? key;
+  final String? _key;
 
-  /// A reference to this component.
-  final String? ref;
+  /// The props for this component, extends [GlobalProps].
+  final T? _props;
 
-  /// The props for this component.
-  final T? props;
-
-  /// Creates a new [Component] instance with the given tag name.
+  /// Creates a new [Component] instance with the given tag, props and children.
+  /// The [tag] argument is optional and defaults to `div`.
   Component({
-    required this.type,
-    this.key,
-    this.ref,
-    this.props,
-  }) {
-    _root = Element.tag(type);
-    props?.setUp(_root);
+    T? props,
+    String? key,
+    Tags tag = Tags.div,
+  })  : _key = key,
+        _props = props,
+        _root = Element.tag(tag.name) as K {
+    _render();
   }
 
-  /// The root element for this component.
-  Element get root => _root;
+  /// Returns a list of child components to render.
+  List<Component> build();
+
+  /// Updates the state of the component and triggers a re-render.
+  void setState(void Function() callback) {
+    callback();
+    _render();
+  }
+
+  void _render() {
+    _root.children = build().map((child) => child._root).toList();
+    _props?.updateStyles(_root);
+  }
+
+  /// Returns the underlying HTML element.
+  K get element => _root;
+
+  /// Returns the underlying HTML node.
+  Node get node => _root;
 }
