@@ -1,9 +1,9 @@
 library wed;
 
-// component
-export 'src/component/component.dart';
-export 'src/component/global_props.dart';
-export 'src/component/tags.dart';
+// core
+export 'src/core/component.dart';
+export 'src/core/global_props.dart';
+export 'src/core/wed_element.dart';
 
 // css
 export 'src/css/css_style.dart';
@@ -41,3 +41,5 @@ export 'src/tags/div/div_props.dart';
 // tags > span
 export 'src/tags/span/span.dart';
 export 'src/tags/span/span_props.dart';
+// tags
+export 'src/tags/tags.dart';

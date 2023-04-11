@@ -23,5 +23,5 @@ import '../wed.dart';
 /// }
 /// ```
 void renderApp(Component component, Element element) {
-  element.append(component.element);
+  element.append(component.build().root);
 }

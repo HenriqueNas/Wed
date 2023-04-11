@@ -3,9 +3,6 @@ import 'dart:html';
 import '../../../wed.dart';
 
 class ButtonProps extends GlobalProps<ButtonElement> {
-  String? innerText;
-  bool? disabled;
-  void Function(MouseEvent event)? onClick;
 
   ButtonProps({
     this.onClick,
@@ -15,6 +12,9 @@ class ButtonProps extends GlobalProps<ButtonElement> {
     super.id,
     super.className,
   });
+  String? innerText;
+  bool? disabled;
+  void Function(MouseEvent event)? onClick;
 
   @override
   void setStyles(ButtonElement root) {

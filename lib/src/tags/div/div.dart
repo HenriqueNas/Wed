@@ -6,17 +6,10 @@ import '../../../wed.dart';
 ///
 /// It's used as a base class for the more specific DivXyz classes, such as DivRow and DivColumn.
 ///
-class Div extends Component<DivProps, DivElement> {
+class Div extends WedElement<DivProps, DivElement> {
+  /// Creates a new [Div] instance with the given props.
   Div({
-    super.key,
     super.props,
-    this.children = const [],
+    super.children,
   }) : super(tag: Tags.div);
-
-  final List<Component> children;
-
-  @override
-  List<Component> build() {
-    return children;
-  }
 }

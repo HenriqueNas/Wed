@@ -5,20 +5,14 @@ import '../../../wed.dart';
 /// The [Span] class is a component that renders a span element.
 ///
 /// It's used as a base class for the more specific SpanXyz classes.
-class Span extends Component<SpanProps, SpanElement> {
-  String? textContent;
-
+class Span extends WedElement<SpanProps, SpanElement> {
+  /// Creates a new [Span] instance with the given props.
   Span(
     this.textContent, {
-    super.key,
     SpanProps props = const SpanProps(),
-    this.children = const [],
+    super.children,
   }) : super(tag: Tags.span, props: props.copyWith(textContent: textContent));
 
-  final List<Component> children;
-
-  @override
-  List<Component> build() {
-    return children;
-  }
+  /// The text content of the span element.
+  String? textContent;
 }

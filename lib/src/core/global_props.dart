@@ -3,9 +3,17 @@ import 'dart:html';
 import '../../wed.dart';
 
 /// The [GlobalProps] class defines properties that can be applied to any HTML element in a component.
-/// This class is used as a type parameter to the [Component] class, and provides the ability to set
+/// This class is used as a type parameter to the [WedElement] class, and provides the ability to set
 /// properties such as the ID, title, styles, and class name of an element.
 class GlobalProps<T extends Element> {
+  /// Creates a new [GlobalProps] instance with the specified properties.
+  const GlobalProps({
+    this.id,
+    this.title,
+    this.styles,
+    this.className,
+  });
+
   /// The ID of the element.
   final String? id;
 
@@ -17,14 +25,6 @@ class GlobalProps<T extends Element> {
 
   /// The class name of the element.
   final String? className;
-
-  /// Creates a new [GlobalProps] instance with the specified properties.
-  const GlobalProps({
-    this.id,
-    this.title,
-    this.styles,
-    this.className,
-  });
 
   /// Sets the styles on the root element.
   void setStyles(T root) {
@@ -48,5 +48,10 @@ class GlobalProps<T extends Element> {
     propsMap?.forEach((name, value) {
       if (value != null) root.style.setProperty(name, value);
     });
+  }
+
+  @override
+  String toString() {
+    return 'GlobalProps(id: $id, title: $title, styles: $styles, className: $className)';
   }
 }
