@@ -16,24 +16,29 @@ class ButtonWedElement extends WedElement<ButtonProps, ButtonElement> {
 }
 
 /// The [Button] class represents the [ButtonWedElement] component.
-class Button extends Widget {
-  /// Creates a new [Button] instance with the given props and children.
+class Button extends ButtonWedElement implements Widget {
+  /// Creates a new [Button] instance with the given props.
   Button({
-    this.props,
-    this.children,
-  });
-
-  /// The props for this component, extends [ElementProps].
-  final ButtonProps? props;
-
-  /// Returns a list of child components to render.
-  final List<Widget>? children;
+    ButtonProps? props = const ButtonProps(),
+    List<Widget>? children,
+  }) : super(
+          props: props,
+          children: children ?? const [],
+        );
 
   @override
-  WedElement build() {
-    return ButtonWedElement(
-      props: props,
-      children: children,
-    );
+  Widget build() {
+    return this;
   }
+
+  @override
+  void initState() {}
+
+  @override
+  void setState(VoidCallback callback) {
+    callback();
+  }
+
+  @override
+  WedElement<ElementProps<Element>, Element> get wed => this;
 }

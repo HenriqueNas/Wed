@@ -22,29 +22,31 @@ class SpanWedElement extends WedElement<SpanProps, SpanElement> {
 }
 
 /// The [Span] class represents the [SpanWedElement] component.
-class Span extends Widget {
-  /// Creates a new [Span] instance with the given props and children.
+class Span extends SpanWedElement implements Widget {
+  /// Creates a new [Span] instance with the given props.
   Span(
-    this.textContent, {
-    this.props,
-    this.children,
-  });
-
-  /// The text content of the span element.
-  final String? textContent;
-
-  /// The props for this component, extends [ElementProps].
-  final SpanProps? props;
-
-  /// Returns a list of child components to render.
-  final List<Widget>? children;
+    String? textContent, {
+    SpanProps? props = const SpanProps(),
+    List<Widget>? children,
+  }) : super(
+          textContent,
+          props: props,
+          children: children ?? const [],
+        );
 
   @override
-  WedElement build() {
-    return SpanWedElement(
-      textContent,
-      props: props,
-      children: children,
-    );
+  Widget build() {
+    return this;
   }
+
+  @override
+  void initState() {}
+
+  @override
+  void setState(VoidCallback callback) {
+    callback();
+  }
+
+  @override
+  WedElement<ElementProps<Element>, Element> get wed => this;
 }

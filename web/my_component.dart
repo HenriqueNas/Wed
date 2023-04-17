@@ -10,8 +10,8 @@ class MyWidget extends Widget {
   }
 
   @override
-  WedElement build() {
-    return DivWedElement(
+  Widget build() {
+    return Div(
       props: DivProps(
         styles: CssStyle(
           width: Units.vw(100),
@@ -29,8 +29,8 @@ class MyWidget extends Widget {
 
 class TopBar extends Widget {
   @override
-  WedElement build() {
-    return DivWedElement(
+  Widget build() {
+    return Div(
       props: DivProps(
         styles: CssStyle(
           width: Units.vw(100),
@@ -66,8 +66,8 @@ class Body extends Widget {
   }
 
   @override
-  WedElement build() {
-    return DivWedElement(
+  Widget build() {
+    return Div(
       props: DivProps(
         styles: CssStyle(
           width: Units.vw(100),
@@ -95,8 +95,8 @@ class CounterText extends Widget {
   final String counter;
 
   @override
-  WedElement build() {
-    return DivWedElement(
+  Widget build() {
+    return Div(
       props: DivProps(
         styles: CssStyle(
           width: Units.vw(100),
@@ -132,8 +132,8 @@ class FloatingActionButton extends Widget {
   final void Function() onClick;
 
   @override
-  WedElement build() {
-    return ButtonWedElement(
+  Widget build() {
+    return Button(
       props: ButtonProps(
         innerText: '+',
         onClick: (_) => onClick(),

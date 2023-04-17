@@ -10,8 +10,8 @@ void main() {
 
 class TestComponent extends Widget {
   @override
-  WedElement build() {
-    return DivWedElement(
+  Widget build() {
+    return Div(
       props: const DivProps(
         styles: CssStyle(
           backgroundColor: 'red',

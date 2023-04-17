@@ -19,24 +19,29 @@ class DivWedElement extends WedElement<DivProps, DivElement> {
 }
 
 /// The [Div] class represents the [DivWedElement] component.
-class Div extends Widget {
-  /// Creates a new [Div] instance with the given props and children.
+class Div extends DivWedElement implements Widget {
+  /// Creates a new [Div] instance with the given props.
   Div({
-    this.props,
-    this.children,
-  });
-
-  /// The props for this component, extends [ElementProps].
-  final DivProps? props;
-
-  /// Returns a list of child components to render.
-  final List<Widget>? children;
+    DivProps? props = const DivProps(),
+    List<Widget>? children,
+  }) : super(
+          props: props,
+          children: children ?? const [],
+        );
 
   @override
-  WedElement build() {
-    return DivWedElement(
-      props: props,
-      children: children,
-    );
+  Widget build() {
+    return this;
   }
+
+  @override
+  void initState() {}
+
+  @override
+  void setState(VoidCallback callback) {
+    callback();
+  }
+
+  @override
+  WedElement<ElementProps<Element>, Element> get wed => this;
 }

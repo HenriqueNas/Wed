@@ -6,7 +6,7 @@ import '../../wed.dart';
 /// It's used as a base class for the more specific WidgetXyz classes.
 abstract class Widget {
   /// Creates a new [WedElement] instance with the given tag, props and children.
-  WedElement build();
+  Widget build();
 
   /// The [initState] method is called when the widget is first created.
   void initState() {
@@ -25,7 +25,7 @@ abstract class Widget {
     final nextSibling = element.nextElementSibling;
     final previousSibling = element.previousElementSibling;
 
-    final newElement = build().htmlElement;
+    final newElement = wed.htmlElement;
 
     if (parent != null) {
       if (nextSibling != null) {
@@ -39,5 +39,5 @@ abstract class Widget {
   }
 
   /// The [Element] for this widget.
-  WedElement get wed => build();
+  WedElement get wed => build().wed;
 }
