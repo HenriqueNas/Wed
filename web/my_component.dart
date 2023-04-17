@@ -1,12 +1,4 @@
-import 'dart:html';
-
 import 'package:wed/wed.dart';
-
-final app = querySelector('#output') as DivElement;
-
-void main() {
-  renderWidget(MyWidget(), app);
-}
 
 class MyWidget extends Widget {
   var text = 'Hello World';

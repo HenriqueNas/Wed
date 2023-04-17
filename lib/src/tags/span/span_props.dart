@@ -2,8 +2,12 @@ import 'dart:html';
 
 import '../../../wed.dart';
 
-class SpanProps extends GlobalProps<SpanElement> {
-
+/// The [SpanProps] class represents the props for the [SpanWedElement] component.
+/// It extends [ElementProps] and adds the following props:
+/// - [textContent] - the text to display on the span
+/// The [SpanProps] class also overrides the [setStyles] and [updateStyles] methods to set the props on the root element.
+class SpanProps extends ElementProps<SpanElement> {
+  /// Creates a new [SpanProps] instance with the given props.
   const SpanProps({
     this.textContent,
     super.id,
@@ -11,11 +15,14 @@ class SpanProps extends GlobalProps<SpanElement> {
     super.styles,
     super.className,
   });
+
+  /// The text to display on the span.
   final String? textContent;
 
   @override
   void setStyles(SpanElement root) {
     super.setStyles(root);
+
     root.text = textContent ?? '';
   }
 
@@ -26,6 +33,7 @@ class SpanProps extends GlobalProps<SpanElement> {
     if (textContent != root.text) root.text = textContent ?? '';
   }
 
+  /// [copyWith] creates a new [SpanProps] instance with the given props.
   SpanProps copyWith({
     String? textContent,
     String? id,
