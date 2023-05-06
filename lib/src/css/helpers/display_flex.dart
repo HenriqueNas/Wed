@@ -3,7 +3,7 @@ import '../../../wed.dart';
 abstract class DisplayFlex {
   static const flex = CssStyle(display: Display.flex);
 
-  static final center = const CssStyle(
+  static final center = CssStyle(
     display: Display.flex,
     alignItems: AlignItems.center,
     justifyContent: JustifyContent.center,

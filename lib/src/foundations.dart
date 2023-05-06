@@ -2,11 +2,11 @@ import 'dart:html';
 
 import '../wed.dart';
 
-/// The [renderWidget] function is the entry point for the framework.
+/// The renderApp function is the entry point for the framework.
 ///
-/// It takes a [Widget] instance and an [Element] instance as parameters.
-/// The [Widget] instance is the widget to render.
-/// The [Element] instance is the HTML element that will contain the widget.
+/// It takes a Component instance and an Element instance as parameters.
+/// The Component instance is the root component of the application.
+/// The Element instance is the HTML element that will contain the root component.
 ///
 /// Use like:
 ///
@@ -17,11 +17,11 @@ import '../wed.dart';
 /// final app = querySelector('#app') as Element;
 ///
 /// main () {
-///  final widget = Div(id: 'my-app');
+///   final component = Div(id: 'my-app');
 ///
-///   renderWidget(widget, app);
+///   renderApp(component, app);
 /// }
 /// ```
-void renderWidget(Widget widget, Element element) {
-  element.append(widget.wed.htmlElement);
+void renderApp(Component component, Element element) {
+  element.append(component.element);
 }

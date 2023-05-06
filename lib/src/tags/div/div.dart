@@ -6,42 +6,17 @@ import '../../../wed.dart';
 ///
 /// It's used as a base class for the more specific DivXyz classes, such as DivRow and DivColumn.
 ///
-class DivWedElement extends WedElement<DivProps, DivElement> {
-  /// Creates a new [DivWedElement] instance with the given props.
-  DivWedElement({
-    DivProps? props = const DivProps(),
-    List<Widget>? children,
-  }) : super(
-          tag: Tags.div,
-          props: props,
-          children: children ?? const [],
-        );
-}
-
-/// The [Div] class represents the [DivWedElement] component.
-class Div extends DivWedElement implements Widget {
-  /// Creates a new [Div] instance with the given props.
+class Div extends Component<DivProps, DivElement> {
   Div({
-    DivProps? props = const DivProps(),
-    List<Widget>? children,
-  }) : super(
-          props: props,
-          children: children ?? const [],
-        );
+    super.key,
+    super.props,
+    this.children = const [],
+  }) : super(tag: Tags.div);
+
+  final List<Component> children;
 
   @override
-  Widget build() {
-    return this;
+  List<Component> build() {
+    return children;
   }
-
-  @override
-  void initState() {}
-
-  @override
-  void setState(VoidCallback callback) {
-    callback();
-  }
-
-  @override
-  WedElement<ElementProps<Element>, Element> get wed => this;
 }

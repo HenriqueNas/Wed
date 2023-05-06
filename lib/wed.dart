@@ -1,9 +1,10 @@
 library wed;
 
-// core
-export 'src/core/element_props.dart';
-export 'src/core/wed_element.dart';
-export 'src/core/widget.dart';
+// component
+export 'src/component/component.dart';
+export 'src/component/global_props.dart';
+export 'src/component/tags.dart';
+
 // css
 export 'src/css/css_style.dart';
 // css > helpers
@@ -27,8 +28,10 @@ export 'src/css/props/edge_insets/margin.dart';
 export 'src/css/props/edge_insets/padding.dart';
 // css > props > text
 export 'src/css/props/text/text_align.dart';
+
 // foundations
 export 'src/foundations.dart';
+
 // tags > button
 export 'src/tags/button/button.dart';
 export 'src/tags/button/button_props.dart';
@@ -38,5 +41,3 @@ export 'src/tags/div/div_props.dart';
 // tags > span
 export 'src/tags/span/span.dart';
 export 'src/tags/span/span_props.dart';
-// tags
-export 'src/tags/tags.dart';
