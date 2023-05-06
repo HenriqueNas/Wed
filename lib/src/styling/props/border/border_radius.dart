@@ -20,11 +20,6 @@ import '../../../../wed.dart';
 /// final borderRadius = BorderRadius.left(5);
 /// ```
 class BorderRadius extends CssBaseProps {
-  final double topLeft;
-  final double topRight;
-  final double bottomLeft;
-  final double bottomRight;
-
   /// Creates a [BorderRadius] object with the specified radii.
   ///
   /// All four corners are set to the same radius, [radius].
@@ -82,6 +77,10 @@ class BorderRadius extends CssBaseProps {
     this.bottomLeft = 0,
     this.bottomRight = 0,
   });
+  final double topLeft;
+  final double topRight;
+  final double bottomLeft;
+  final double bottomRight;
 
   @override
   String get name => 'border-radius';

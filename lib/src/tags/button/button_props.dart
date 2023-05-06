@@ -2,11 +2,11 @@ import 'dart:html';
 
 import '../../../wed.dart';
 
+/// {@template button_props}
+/// A [Component] that renders a `<button>` tag.
+/// {@endtemplate}
 class ButtonProps extends GlobalProps<ButtonElement> {
-  String? innerText;
-  bool? disabled;
-  void Function(MouseEvent event)? onClick;
-
+  /// {@macro button_props}
   ButtonProps({
     this.onClick,
     this.disabled,
@@ -16,18 +16,28 @@ class ButtonProps extends GlobalProps<ButtonElement> {
     super.className,
   });
 
+  /// The text to display inside the button.
+  String? innerText;
+
+  /// Whether the button is disabled.
+  bool? disabled;
+
+  /// The event handler for the `onClick` event.
+  void Function(MouseEvent event)? onClick;
+
   @override
   void setStyles(ButtonElement root) {
     super.setStyles(root);
 
-    root.innerText = innerText ?? '';
-    root.disabled = disabled ?? false;
+    root
+      ..innerText = innerText ?? ''
+      ..disabled = disabled ?? false;
     root.onClick.listen((event) {
       onClick?.call(event);
     });
   }
 
-  /// [update] checks if the props have changed and updates the [root] element.
+  /// [updateStyles] checks if the props have changed and updates the [root] element.
   @override
   void updateStyles(ButtonElement root) {
     super.updateStyles(root);

@@ -4,13 +4,13 @@ import 'dart:html';
 ///
 /// Implementations should override [name] and [value] to provide the CSS property name and value.
 abstract class CssBaseProps {
+
+  const CssBaseProps();
   /// The CSS property name.
   String get name;
 
   /// The CSS property value.
   String get value;
-
-  const CssBaseProps();
 
   /// Converts the CSS property to a map that can be passed to a CSS style declaration.
   ///

@@ -6,9 +6,6 @@ import '../../../../wed.dart';
 ///
 ///The Padding class has several constructors, which allow for the creation of padding with different values.
 class Padding extends EdgeInsets {
-  @override
-  EdgeInsetsTypes get type => EdgeInsetsTypes.padding;
-
   /// Creates a `Padding` instance with a `type` value of `EdgeInsetsTypes.padding`.
   const Padding(
     double top,
@@ -49,4 +46,6 @@ class Padding extends EdgeInsets {
           horizontal: horizontal,
           type: EdgeInsetsTypes.padding,
         );
+  @override
+  EdgeInsetsTypes get type => EdgeInsetsTypes.padding;
 }

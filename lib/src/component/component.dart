@@ -2,6 +2,7 @@ import 'dart:html';
 
 import '../../wed.dart';
 
+/// {@template component}
 /// The [Component] class is the core building block of the framework, representing a single HTML element.
 ///
 /// This is an abstract class, so you can't create instances of it directly. Instead, you should create subclasses for each HTML tag that you want to use in your application.
@@ -42,18 +43,12 @@ import '../../wed.dart';
 /// You can also use the `setState` method to update the state of the component and trigger a re-render.
 ///
 /// Finally, the `element` and `node` getters provide access to the underlying HTML element and node, respectively.
+/// {@endtemplate}
 abstract class Component<T extends GlobalProps, K extends Element> {
-  /// The root element for this component.
-  final K _root;
-
-  /// The unique key for this component.
-  final String? _key;
-
-  /// The props for this component, extends [GlobalProps].
-  final T? _props;
-
   /// Creates a new [Component] instance with the given tag, props and children.
   /// The [tag] argument is optional and defaults to `div`.
+  /// The [props] argument is optional and defaults to `null`.
+  /// {@macro component}
   Component({
     T? props,
     String? key,
@@ -63,6 +58,15 @@ abstract class Component<T extends GlobalProps, K extends Element> {
         _root = Element.tag(tag.name) as K {
     _render();
   }
+
+  /// The root element for this component.
+  final K _root;
+
+  /// The unique key for this component.
+  final String? _key;
+
+  /// The props for this component, extends [GlobalProps].
+  final T? _props;
 
   /// Returns a list of child components to render.
   List<Component> build();

@@ -6,7 +6,6 @@ import '../../../wed.dart';
 ///
 /// It's used as a base class for the more specific SpanXyz classes.
 class Span extends Component<SpanProps, SpanElement> {
-  String? textContent;
 
   Span(
     this.textContent, {
@@ -14,6 +13,7 @@ class Span extends Component<SpanProps, SpanElement> {
     SpanProps props = const SpanProps(),
     this.children = const [],
   }) : super(tag: Tags.span, props: props.copyWith(textContent: textContent));
+  String? textContent;
 
   final List<Component> children;
 

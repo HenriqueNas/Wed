@@ -1,38 +1,16 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:html';
 
 import '../../wed.dart';
 
+/// {@template css_style}
 /// The [CssStyle] class is a base class that defines a set of common CSS properties.
 ///
 /// It's used as a base class for the more specific CssXyzProps classes, such as CssDivProps and CssButtonProps.
-///
+/// {@endtemplate}
 class CssStyle {
-  final String? backgroundColor;
-  final String? borderColor;
-  final String? borderStyle;
-  final String? borderWidth;
-  final String? color;
-  final String? fontFamily;
-  final String? fontSize;
-  final String? fontStyle;
-  final String? fontWeight;
-  final String? height;
-  final String? textDecoration;
-  final String? textTransform;
-  final String? width;
-  final BorderRadius? borderRadius;
-  final Display? display;
-  final AlignItems? alignItems;
-  final JustifyContent? justifyContent;
-  final FlexDirection? flexDirection;
-  final Margin? margin;
-  final Padding? padding;
-  final TextAlign? textAlign;
-  final Cursor? cursor;
-  final String? border;
-  final String? boxShadow;
-  final String? boxSizing;
-
+  /// {@macro css_style}
   const CssStyle({
     this.border,
     this.boxShadow,
@@ -60,6 +38,31 @@ class CssStyle {
     this.flexDirection,
     this.boxSizing,
   });
+  final String? backgroundColor;
+  final String? borderColor;
+  final String? borderStyle;
+  final String? borderWidth;
+  final String? color;
+  final String? fontFamily;
+  final String? fontSize;
+  final String? fontStyle;
+  final String? fontWeight;
+  final String? height;
+  final String? textDecoration;
+  final String? textTransform;
+  final String? width;
+  final BorderRadius? borderRadius;
+  final Display? display;
+  final AlignItems? alignItems;
+  final JustifyContent? justifyContent;
+  final FlexDirection? flexDirection;
+  final Margin? margin;
+  final Padding? padding;
+  final TextAlign? textAlign;
+  final Cursor? cursor;
+  final String? border;
+  final String? boxShadow;
+  final String? boxSizing;
 
   Map<String, String?> toMap() {
     return {

@@ -6,6 +6,14 @@ import '../../wed.dart';
 /// This class is used as a type parameter to the [Component] class, and provides the ability to set
 /// properties such as the ID, title, styles, and class name of an element.
 class GlobalProps<T extends Element> {
+  /// Creates a new [GlobalProps] instance with the specified properties.
+  const GlobalProps({
+    this.id,
+    this.title,
+    this.styles,
+    this.className,
+  });
+
   /// The ID of the element.
   final String? id;
 
@@ -17,14 +25,6 @@ class GlobalProps<T extends Element> {
 
   /// The class name of the element.
   final String? className;
-
-  /// Creates a new [GlobalProps] instance with the specified properties.
-  const GlobalProps({
-    this.id,
-    this.title,
-    this.styles,
-    this.className,
-  });
 
   /// Sets the styles on the root element.
   void setStyles(T root) {

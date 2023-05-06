@@ -3,7 +3,6 @@ import 'dart:html';
 import '../../../wed.dart';
 
 class SpanProps extends GlobalProps<SpanElement> {
-  final String? textContent;
 
   const SpanProps({
     this.textContent,
@@ -12,6 +11,7 @@ class SpanProps extends GlobalProps<SpanElement> {
     super.styles,
     super.className,
   });
+  final String? textContent;
 
   @override
   void setStyles(SpanElement root) {
