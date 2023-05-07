@@ -1,11 +1,7 @@
-import 'dart:html';
-
-import 'package:wed/wed_core.dart';
-
-final app = querySelector('#output') as DivElement;
+import 'package:wed_core/wed_core.dart';
 
 void main() {
-  renderApp(TestComponent(), app);
+  renderApp(TestComponent());
 }
 
 class TestComponent extends Component {

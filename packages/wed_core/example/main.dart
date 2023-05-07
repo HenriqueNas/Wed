@@ -1,11 +1,9 @@
-import 'dart:html';
+// ignore_for_file: type_annotate_public_apis
 
-import 'package:wed/wed_core.dart';
-
-final app = querySelector('#output') as DivElement;
+import 'package:wed_core/wed_core.dart';
 
 void main() {
-  renderApp(MyComponent(), app);
+  renderApp(MyComponent());
 }
 
 class MyComponent extends Component {

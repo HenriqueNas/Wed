@@ -1,5 +1,6 @@
 /// routing system for wed_core
 library wed_router;
 
-export 'src/build_page_configuration.dart';
-export 'src/validate_route_configuration/validate_page_configuration.dart';
+export 'src/route.dart';
+export 'src/router.dart';
+export 'src/router_exception.dart';

@@ -6,10 +6,13 @@ publish_to: none
 environment:
   sdk: ">=2.18.0 <3.0.0"
 
+dependencies:
+  wed_core:
+    path: ../wed_core/
+
 dev_dependencies:
-  mocktail: ^0.3.0
+  build_runner: ^2.3.3
+  build_web_compilers: ^3.2.7
   test: ^1.19.2
   very_good_analysis: ^3.1.0
-dependencies:
-  path: ^1.8.3
-  pubspec_parse: ^1.2.3
+  
