@@ -1,111 +1,21 @@
-# Wed Framework
+# Wed Core
 
-The Wed Framework is a simple web framework for Dart, inspired by React and using Flutter syntax. It provides a set of basic components and a global method for rendering the application.
+The Wed Core Dart library is a collection of abstract classes and abstractions for building components with styles in Dart applications.
+Designed to provide the core abstractions of the `Wed framework`.
 
-## Getting Started
+## Classes
 
-### Installing
+`Component<T extends Props>`
+The Component class is an abstraction for a component that can be rendered. It provides a way to manage component state and trigger re-renders.
 
-To use the Wed framework, first you'll need to create a new Dart web project and add the wed package to your _pubspec.yaml_ file:
+`SingleChildComponent<T extends Props>`
+The SingleChildComponent class extends Component and is designed for components with a single child.
 
-```yaml
-dependencies:
-  wed: ^0.0.5
-```
+`MultiChildrenComponent<T extends Props>`
+The MultiChildrenComponent class extends Component and is designed for components with multiple children.
 
-Or just run the following command:
-```bash
-$ dart pub add wed
-```
+`Props<S extends Style>`
+The Props class is an abstraction for the props that can be applied to a Component. It includes style information and a unique key.
 
-### Using
-
-Then, you can import the package into your project and start using the provided components:
-
-```dart
-import 'dart:html';
-
-import 'package:wed/wed.dart';
-
-final app = querySelector("#output") as DivElement;
-
-void main() {
-  renderApp(MyComponent(), app);
-}
-
-class MyComponent extends Component {
-  var text = 'Hello World';
-  var isClicked = false;
-
-  void toggleText() {
-    isClicked = !isClicked;
-    text = isClicked ? 'Clicked' : 'Hello World';
-  }
-
-  @override
-  List<Component> build() {
-    return [
-      Div(
-        props: DivProps(
-          styles: CssStyle(
-            width: Units.vw(100),
-            height: Units.vh(100),
-            backgroundColor: 'lightblue',
-          ).merge(DisplayFlex.center),
-        ),
-        children: [
-          Button(
-            props: ButtonProps(
-              innerText: text,
-              styles: CssStyle(
-                backgroundColor: 'blue',
-                fontSize: Units.rem(2),
-                color: 'white',
-                textAlign: TextAlign.center,
-                padding: Padding.symmetric(horizontal: 30, vertical: 20),
-                borderRadius: BorderRadius.all(12),
-                borderWidth: Units.none,
-                cursor: Cursor.pointer,
-              ),
-              onClick: (_) {
-                setState(() {
-                  toggleText();
-                });
-              },
-            ),
-          ),
-        ],
-      ),
-    ];
-  }
-}
-
-```
-
-## Classes and Helpers
-
-The `Component` class is the base class for all components, and it contains a basic set of methods for rendering the component and updating its state.
-
-### `Component` Class
-
-The `Component` class contains the following methods:
-
-- `render()`: This method returns a `Widget` object that represents the component's current state.
-- `setState()`: This method allows the component's state to be updated, triggering a re-render.
-
-### `CssStyle` Class
-
-The `ComponentBaseProps` class is the base class for all component props classes.
-
-## Contributing
-
-Contributions are welcome! If you have any suggestions or improvements, please open an issue or submit a pull request.
-
-## Authors
-
-- Henrique Nascimento - Initial work - [@HenriqueNas](https://github.com/henriquenas)
-
-## License
-
-The Wed Framework is licensed under the [MIT License](./LICENSE).
-
+`Style`
+The Style class is an abstraction for the style that can be applied to a Component. It includes a method for updating styles.
