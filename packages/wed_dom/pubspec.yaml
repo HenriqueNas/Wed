@@ -1,0 +1,17 @@
+name: wed_dom
+description: The manipulation of Wed Components at the DOM
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  uuid: ^3.0.7
+  wed_core:
+    path: ../wed_core/
+
+dev_dependencies:
+  mocktail: ^0.3.0
+  test: ^1.19.2
+  very_good_analysis: ^3.1.0
