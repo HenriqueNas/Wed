@@ -25,7 +25,4 @@ abstract class Style {
   /// Constructs a [Style] </br>
   /// {@macro style}
   const Style();
-
-  /// Updates all styles props.
-  void update();
 }

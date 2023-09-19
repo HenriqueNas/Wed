@@ -2,18 +2,16 @@
 
 The Wed Framework is a simple web framework for Dart, inspired by React and using Flutter syntax. It provides a set of basic components and a global method for rendering the application.
 
-A fast, minimalistic backend framework for Dart 🎯
-
-Developed with 💙 by [HenriqueNas][https://github.com/henriquenas] 🦄
+Developed with 💙 by [HenriqueNas](https://github.com/henriquenas) 🇧🇷
 
 ## Packages 📦
 
 | Package                                                                                                         | Pub                                                                                                                    |
 | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [wed](https://github.com/verygoodopensource/dart_frog/tree/main/packages/dart_frog)                             | [![pub package](https://img.shields.io/pub/v/dart_frog.svg)](https://pub.dev/packages/wed)                             |
-| [wed_core](https://github.com/verygoodopensource/dart_frog/tree/main/packages/wed_router)                    | [![pub package](https://img.shields.io/pub/v/wed_router.svg)](https://pub.dev/packages/wed)                         |
-| [wed_utils](https://github.com/verygoodopensource/dart_frog/tree/main/packages/dart_frog_cli)                   | [![pub package](https://img.shields.io/pub/v/dart_frog_cli.svg)](https://pub.dev/packages/wed)                         |
-| [wed_router](https://github.com/verygoodopensource/dart_frog/tree/main/packages/dart_frog_web_socket)           | [![pub package](https://img.shields.io/pub/v/dart_frog_web_socket.svg)](https://pub.dev/packages/wed)                  |
+| [wed_core](https://github.com/HenriqueNas/Wed/tree/main/packages/wed_core)                                      | [![pub package](https://img.shields.io/pub/v/dart_frog.svg)](https://pub.dev/packages/wed)                             |
+| [wed_dom](https://github.com/HenriqueNas/Wed/tree/main/packages/wed_dom)                                        | [![pub package](https://img.shields.io/pub/v/wed_router.svg)](https://pub.dev/packages/wed)                         |
+| [wed_utils](https://github.com/HenriqueNas/Wed/tree/main/packages/wed_utils)                                    | [![pub package](https://img.shields.io/pub/v/dart_frog_cli.svg)](https://pub.dev/packages/wed)                         |
+| [wed_router](https://github.com/HenriqueNas/Wed/tree/main/packages/wed_router)                                  | [![pub package](https://img.shields.io/pub/v/dart_frog_web_socket.svg)](https://pub.dev/packages/wed)                  |
 
 
 ## Getting Started
@@ -24,7 +22,7 @@ To use the Wed framework, first you'll need to create a new Dart web project and
 
 ```yaml
 dependencies:
-  wed: ^0.0.5
+  wed: ^0.0.6
 ```
 
 Or just run the following command:
