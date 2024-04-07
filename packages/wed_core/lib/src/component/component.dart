@@ -23,9 +23,11 @@ abstract class Component<T extends Props> {
   /// Updates the state of the component and triggers a re-render.
   void setState(VoidCallback callback) {
     callback();
-
-    _props.style?.update();
+    render();
   }
+
+  /// Renders the component into the current system.
+  void render();
 }
 
 /// {@template Single_child_component}
