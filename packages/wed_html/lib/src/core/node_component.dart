@@ -29,7 +29,7 @@ abstract class NodeComponent<N extends Node, P extends HtmlProps>
   final List<NodeComponent> children;
 
   /// List of events for this component.
-  final List<Event>? events;
+  final List<HtmlEvents>? events;
 
   /// The [Node] that represents this component.
   final N node;
@@ -39,16 +39,11 @@ abstract class NodeComponent<N extends Node, P extends HtmlProps>
 
   @override
   void render() {
-    // update the events
-    events?.forEach((event) {
-      node.addEventListener(event.type, (_) {
-        event
-          ..stopPropagation()
-          ..preventDefault()
-          ..stopImmediatePropagation();
-
-        event.currentTarget?.dispatchEvent(event);
-      });
+    events?.forEach((htmlEvent) {
+      node.addEventListener(
+        htmlEvent.event.type,
+        htmlEvent.callback,
+      );
     });
   }
 }

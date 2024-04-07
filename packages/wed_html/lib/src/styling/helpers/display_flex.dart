@@ -8,7 +8,12 @@ class DisplayFlex extends CssStyle {
   // static const flex = CssStyle(display: Display.flex);
 
   /// Returns a [CssStyle] with the [Display.flex] property.
-  const DisplayFlex.flex() : super(display: Display.flex);
+  const DisplayFlex.flex({
+    super.gap,
+    super.flexDirection,
+    super.alignItems,
+    super.justifyContent,
+  }) : super(display: Display.flex);
 
   /// Returns a [CssStyle] with props for centering the content:
   ///
@@ -19,8 +24,10 @@ class DisplayFlex extends CssStyle {
   ///   alignItems: AlignItems.center,
   /// );
   /// ```
-  const DisplayFlex.center()
-      : super(
+  const DisplayFlex.center({
+    super.flexDirection,
+    super.gap,
+  }) : super(
           display: Display.flex,
           justifyContent: JustifyContent.center,
           alignItems: AlignItems.center,
@@ -34,8 +41,11 @@ class DisplayFlex extends CssStyle {
   ///   flexDirection: FlexDirection.row,
   /// );
   /// ```
-  const DisplayFlex.row()
-      : super(
+  const DisplayFlex.row({
+    super.gap,
+    super.alignItems,
+    super.justifyContent,
+  }) : super(
           display: Display.flex,
           flexDirection: FlexDirection.row,
         );
@@ -49,8 +59,11 @@ class DisplayFlex extends CssStyle {
   ///   flexDirection: FlexDirection.column,
   /// );
   /// ```
-  const DisplayFlex.column()
-      : super(
+  const DisplayFlex.column({
+    super.gap,
+    super.alignItems,
+    super.justifyContent,
+  }) : super(
           display: Display.flex,
           flexDirection: FlexDirection.column,
         );

@@ -7,26 +7,35 @@ import 'package:wed_html/wed_html.dart';
 ///
 /// It extends [TagComponent].
 /// {@endtemplate}
-class Button extends TagComponent<SpanElement, HtmlProps> {
+class Button extends TagComponent<ButtonElement, HtmlProps> {
   ///
   Button(
     this.text, {
-    super.events,
     super.props,
+    this.onClick,
+    List<HtmlEvents>? events,
     List<NodeComponent>? children,
   }) : super(
           tag: Tag.button,
           children: [TextComponent(text), ...?children],
+          events: onClick != null ? [...?events, OnClick(onClick)] : events,
         );
 
   /// Creates an instance of [Button] without text child.
   Button.children({
     super.props = const HtmlProps(),
     super.children,
-    super.events,
+    this.onClick,
+    List<HtmlEvents>? events,
   })  : text = null,
-        super(tag: Tag.button);
+        super(
+          tag: Tag.button,
+          events: onClick != null ? [...?events, OnClick(onClick)] : events,
+        );
 
   /// The text to render.
-  String? text;
+  final String? text;
+
+  ///
+  final void Function(Event event)? onClick;
 }

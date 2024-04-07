@@ -23,15 +23,15 @@ abstract class TagComponent<N extends Element, P extends HtmlProps>
   }) : super(
           props: props ?? const HtmlProps() as P,
           node: Element.tag(tag.name) as N,
-        ) {
-    render();
-  }
+        );
 
   /// The tag to render.
   final Tag tag;
 
   @override
   void render() {
+    node.children.clear();
+
     children.forEach((child) {
       node.append(child.node);
     });
@@ -47,7 +47,5 @@ abstract class TagComponent<N extends Element, P extends HtmlProps>
   }
 
   @override
-  List<NodeComponent> build() {
-    return children;
-  }
+  List<NodeComponent> build() => children;
 }

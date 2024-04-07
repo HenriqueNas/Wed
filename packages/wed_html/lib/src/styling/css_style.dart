@@ -41,6 +41,7 @@ class CssStyle extends Style {
     this.justifyContent,
     this.flexDirection,
     this.boxSizing,
+    this.gap,
   });
 
   final Color? backgroundColor;
@@ -54,6 +55,7 @@ class CssStyle extends Style {
   final String? fontWeight;
   final String? textDecoration;
   final String? textTransform;
+  final String? gap;
 
   /// The height value of the element. <br />
   /// {@macro units}
@@ -121,6 +123,7 @@ class CssStyle extends Style {
       'border': border,
       'box-shadow': boxShadow,
       'box-sizing': boxSizing,
+      'gap': gap,
     };
   }
 
@@ -167,6 +170,7 @@ class CssStyle extends Style {
       border: other.border,
       boxShadow: other.boxShadow,
       boxSizing: other.boxSizing,
+      gap: gap,
     );
   }
 
@@ -205,6 +209,7 @@ class CssStyle extends Style {
     String? border,
     String? boxShadow,
     String? boxSizing,
+    String? gap,
   }) {
     return CssStyle(
       cursor: cursor ?? this.cursor,
@@ -232,11 +237,10 @@ class CssStyle extends Style {
       border: border ?? this.border,
       boxShadow: boxShadow ?? this.boxShadow,
       boxSizing: boxSizing ?? this.boxSizing,
+      gap: gap,
     );
   }
 
   @override
-  String toString() {
-    return toMap().toString();
-  }
+  String toString() => toMap().toString();
 }

@@ -1,7 +1,16 @@
 import 'dart:html';
 
+/// A class that represents an HTML event.
 class HtmlEvents {
-  const HtmlEvents(this.event);
+  /// Creates a new instance of [HtmlEvents].
+  const HtmlEvents({
+    required this.event,
+    required this.callback,
+  });
 
+  /// The event.
   final Event event;
+
+  /// The callback function.
+  final void Function(Event event) callback;
 }
