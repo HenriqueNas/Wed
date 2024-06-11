@@ -1,9 +1,9 @@
 /// {@template props}
-/// The [Props] class is an abstraction for a props that
-/// can be applied to a `Component`.
+/// A class representing props that can be passed to a component.
+/// Props are immutable data that configure a component's behavior.
 /// {@endtemplate}
 abstract class Props<S extends Style> {
-  /// Constructs a [Props] </br>
+  /// Constructs a [Props].
   /// {@macro props}
   const Props({
     this.style,
@@ -13,16 +13,15 @@ abstract class Props<S extends Style> {
   /// The style for a `Component`, extends [Style].
   final S? style;
 
-  /// A immutable and unique key for a `Component`
+  /// A unique key used to identify the component in the component tree.
   final String? key;
 }
 
 /// {@template style}
-/// The [Style] class is an abstraction for a style that
-/// can be applied to a `Component`.
+/// A class representing style properties that can be applied to a component.
 /// {@endtemplate}
 abstract class Style {
-  /// Constructs a [Style] </br>
+  /// Constructs a [Style].
   /// {@macro style}
   const Style();
 }
