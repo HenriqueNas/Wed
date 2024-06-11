@@ -3,12 +3,11 @@ import 'dart:html';
 import 'package:wed_html/wed_html.dart';
 
 /// {@template button}
-/// The [Button] class is a component that renders a <button> element.
-///
-/// It extends [TagComponent].
+/// A component that renders a <button> element.
 /// {@endtemplate}
 class Button extends TagComponent<ButtonElement, HtmlProps> {
-  ///
+  /// Creates a button with the specified [text].
+  /// {@macro button}
   Button(
     this.text, {
     super.props,
@@ -22,6 +21,7 @@ class Button extends TagComponent<ButtonElement, HtmlProps> {
         );
 
   /// Creates an instance of [Button] without text child.
+  /// If [onClick] is provided, the button will be clickable.
   Button.children({
     super.props = const HtmlProps(),
     super.children,
@@ -37,5 +37,5 @@ class Button extends TagComponent<ButtonElement, HtmlProps> {
   final String? text;
 
   ///
-  final void Function(Event event)? onClick;
+  final EventCallback<MouseEvent>? onClick;
 }
