@@ -1,4 +1,4 @@
-import 'package:wed_html/src/styling/props/css_enum_props.dart';
+import 'package:wed_html/wed_html.dart';
 
 /// This code defines an enumeration TextAlign that implements
 /// the CssBaseEnum interface. <br />
@@ -15,7 +15,7 @@ import 'package:wed_html/src/styling/props/css_enum_props.dart';
 ///
 /// This enumeration can be used in CSS styling to specify
 ///  text alignment options for html elements.
-enum TextAlign implements CssEnumProps {
+enum TextAlign with CssPropMixin {
   /// Represents the CSS `text-align: left` property.
   left,
 
@@ -35,5 +35,8 @@ enum TextAlign implements CssEnumProps {
   inherit;
 
   @override
-  String get value => name;
+  String get propValue => name;
+
+  @override
+  String get propName => 'text-align';
 }

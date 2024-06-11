@@ -1,4 +1,4 @@
-import 'package:wed_html/src/styling/exports.dart';
+import 'package:wed_html/wed_html.dart';
 
 /// {@template justify_content}
 /// Enum class for the different values of the CSS `justify-content` property.
@@ -9,7 +9,7 @@ import 'package:wed_html/src/styling/exports.dart';
 /// The values of this enum are: `flexStart`, `flexEnd`, `center`,
 /// `spaceBetween`, `spaceAround`, `spaceEvenly`, `initial`, and `inherit`.
 /// {@endtemplate}
-enum JustifyContent implements CssEnumProps {
+enum JustifyContent with CssPropMixin {
   /// The flex items are packed starting from the main-start.
   flexStart,
 
@@ -36,7 +36,7 @@ enum JustifyContent implements CssEnumProps {
   inherit;
 
   @override
-  String get value => switch (this) {
+  String get propValue => switch (this) {
         JustifyContent.flexStart => 'flex-start',
         JustifyContent.flexEnd => 'flex-end',
         JustifyContent.spaceBetween => 'space-between',
@@ -44,4 +44,7 @@ enum JustifyContent implements CssEnumProps {
         JustifyContent.spaceEvenly => 'space-evenly',
         _ => name,
       };
+
+  @override
+  String get propName => 'justify-content';
 }

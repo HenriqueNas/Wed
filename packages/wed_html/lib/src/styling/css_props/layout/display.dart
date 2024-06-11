@@ -1,4 +1,4 @@
-import 'package:wed_html/src/styling/exports.dart';
+import 'package:wed_html/wed_html.dart';
 
 /// {@template display}
 /// Enum class for the different values of the CSS `display` property.
@@ -13,7 +13,7 @@ import 'package:wed_html/src/styling/exports.dart';
 /// `tableRow`, `none`, `initial`, and `inherit`.
 ///
 /// {@endtemplate}
-enum Display implements CssEnumProps {
+enum Display with CssPropMixin {
   /// The element generates one or more inline boxes that do not generate line
   /// breaks before or after themselves. In normal flow, the next element will
   /// be on the same line if there is space.
@@ -93,7 +93,7 @@ enum Display implements CssEnumProps {
   inherit;
 
   @override
-  String get value => switch (this) {
+  String get propValue => switch (this) {
         Display.inlineBlock => 'inline-block',
         Display.inlineFlex => 'inline-flex',
         Display.inlineGrid => 'inline-grid',
@@ -110,4 +110,7 @@ enum Display implements CssEnumProps {
         Display.tableRow => 'table-row',
         _ => name,
       };
+
+  @override
+  String get propName => 'display';
 }

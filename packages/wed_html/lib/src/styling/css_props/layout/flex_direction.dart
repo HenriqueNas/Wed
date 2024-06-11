@@ -1,4 +1,4 @@
-import 'package:wed_html/src/styling/exports.dart';
+import 'package:wed_html/wed_html.dart';
 
 /// {@template flex_direction}
 /// Enum class for the different values of the CSS `flex-direction` property.
@@ -9,7 +9,7 @@ import 'package:wed_html/src/styling/exports.dart';
 /// The values of this enum are: `row`, `rowReverse`, `column`, `columnReverse`,
 /// `initial`, and `inherit`.
 /// {@endtemplate}
-enum FlexDirection implements CssEnumProps {
+enum FlexDirection with CssPropMixin {
   /// The flex container's main-axis is the same as the block-axis.
   row,
 
@@ -29,10 +29,13 @@ enum FlexDirection implements CssEnumProps {
   inherit;
 
   @override
-  String get value => switch (this) {
+  String get propValue => switch (this) {
         FlexDirection.rowReverse => 'row-reverse',
         FlexDirection.column => 'column',
         FlexDirection.columnReverse => 'column-reverse',
         _ => name,
       };
+
+  @override
+  String get propName => 'flex-direction';
 }

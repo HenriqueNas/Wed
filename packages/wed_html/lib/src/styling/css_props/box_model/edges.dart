@@ -32,7 +32,7 @@ import 'package:wed_html/src/styling/exports.dart';
 /// insets in the format `'${top}px ${right}px ${bottom}px ${left}px'`.
 ///
 /// {@endtemplate}
-class Edges extends CssBaseProp {
+class Edges extends BaseCssProp {
   /// Creates an instance of `Edges` with all edge insets default `0`. <br />
   /// {@macro edges}
   const Edges({
@@ -114,13 +114,13 @@ class Edges extends CssBaseProp {
   final double left;
 
   @override
-  String get name => type.name;
+  String get propName => type.name;
 
   @override
-  String get value => '${top}px ${right}px ${bottom}px ${left}px';
+  String get propValue => '${top}px ${right}px ${bottom}px ${left}px';
 
   @override
-  String toString() => value;
+  String toString() => propValue;
 }
 
 /// Enum class for the different types of edge insets.

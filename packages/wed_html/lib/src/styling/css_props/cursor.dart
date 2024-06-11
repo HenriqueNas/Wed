@@ -2,11 +2,8 @@ import 'package:wed_html/src/styling/exports.dart';
 
 /// A class representing a CSS cursor property.
 ///
-/// The `cursor` property specifies the mouse cursor to be displayed when pointing over an element.
-///
-/// The `cursor` property can have one of the following values:
-///
-enum Cursor implements CssEnumProps {
+/// The `cursor` property specifies the mouse cursor to be displayed when pointing over an element. <br />
+enum Cursor with CssPropMixin {
   /// The browser sets a cursor.
   alias,
 
@@ -127,7 +124,7 @@ enum Cursor implements CssEnumProps {
   inherit;
 
   @override
-  String get value => switch (this) {
+  String get propValue => switch (this) {
         Cursor.allScroll => 'all-scroll',
         Cursor.colResize => 'col-resize',
         Cursor.contextMenu => 'context-menu',
@@ -152,4 +149,7 @@ enum Cursor implements CssEnumProps {
         Cursor.verticalText => 'vertical-text',
         _ => name,
       };
+
+  @override
+  String get propName => 'cursor';
 }

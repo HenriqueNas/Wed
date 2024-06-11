@@ -7,7 +7,7 @@ import 'package:wed_html/src/styling/exports.dart';
 ///
 /// The values of this enum are: `normal`, `stretch`, `flexStart`, `flexEnd`,
 /// `center`, `start`, `end`, `baseline`, `initial`, and `inherit`.
-enum AlignItems implements CssEnumProps {
+enum AlignItems with CssPropMixin {
   /// The effect of this keyword is dependent of the layout mode we are in:
   ///
   /// - In absolutely-positioned layouts, the keyword behaves like start on
@@ -57,9 +57,12 @@ enum AlignItems implements CssEnumProps {
   inherit;
 
   @override
-  String get value => switch (this) {
+  String get propValue => switch (this) {
         AlignItems.flexStart => 'flex-start',
         AlignItems.flexEnd => 'flex-end',
         _ => name,
       };
+
+  @override
+  String get propName => 'align-items';
 }

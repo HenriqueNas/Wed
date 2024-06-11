@@ -51,14 +51,14 @@ class RedBox extends Div {
           props: HtmlProps(
             style: CssStyle(
               color: Colors.white,
-              fontSize: '32px',
+              fontSize: Units.px(32),
             ),
           ),
         ),
         Div(
           props: HtmlProps(
             style: DisplayFlex.column(
-              gap: Units.px(10).toString(),
+              gap: Units.px(10),
               alignItems: AlignItems.center,
             ),
           ),
@@ -74,7 +74,7 @@ class RedBox extends Div {
               props: HtmlProps(
                 style: CssStyle(
                   color: Colors.white,
-                  fontSize: Units.px(28).toString(),
+                  fontSize: Units.px(28),
                 ),
               ),
             ),
@@ -97,7 +97,7 @@ class MyButton extends Button {
             vertical: 8,
             horizontal: 18,
           ),
-          border: 'none',
+          border: Border.none(),
           borderRadius: const BorderRadius.all(12),
         ),
       );

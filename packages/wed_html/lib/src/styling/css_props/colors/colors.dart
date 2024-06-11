@@ -1,4 +1,4 @@
-import 'package:wed_html/src/styling/props/colors/color.dart';
+import 'package:wed_html/src/styling/css_props/colors/color.dart';
 
 /// {@template colors}
 /// The [Colors] class is a collection of colors supported
