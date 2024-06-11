@@ -32,11 +32,11 @@ abstract class TagComponent<N extends Element, P extends HtmlProps>
   void render() {
     node.children.clear();
 
+    _updateStyle();
     children.forEach((child) {
       node.append(child.node);
     });
 
-    _updateStyle();
     super.render();
   }
 

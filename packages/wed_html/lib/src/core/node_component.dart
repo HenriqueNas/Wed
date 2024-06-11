@@ -29,7 +29,7 @@ abstract class NodeComponent<N extends Node, P extends HtmlProps>
   final List<NodeComponent> children;
 
   /// List of events for this component.
-  final List<HtmlEvents>? events;
+  final List<HtmlEvent>? events;
 
   /// The [Node] that represents this component.
   final N node;

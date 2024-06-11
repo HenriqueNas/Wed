@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:wed_html/wed_html.dart';
 
 /// Animation event.
-class BaseAnimationEvent extends HtmlEvents<AnimationEvent> {
+class BaseAnimationEvent extends HtmlEvent<AnimationEvent> {
   /// Creates an instance of [BaseAnimationEvent].
   const BaseAnimationEvent(
     AnimationEvent event,
@@ -15,7 +15,7 @@ class BaseAnimationEvent extends HtmlEvents<AnimationEvent> {
 }
 
 /// Animation start event.
-class OnAnimationStart extends HtmlEvents<AnimationEvent> {
+class OnAnimationStart extends HtmlEvent<AnimationEvent> {
   /// Creates an instance of [OnAnimationStart].
   OnAnimationStart(EventCallback<AnimationEvent> callback)
       : super(
@@ -25,7 +25,7 @@ class OnAnimationStart extends HtmlEvents<AnimationEvent> {
 }
 
 /// Animation end event.
-class OnAnimationEnd extends HtmlEvents<AnimationEvent> {
+class OnAnimationEnd extends HtmlEvent<AnimationEvent> {
   /// Creates an instance of [OnAnimationEnd].
   OnAnimationEnd(EventCallback<AnimationEvent> callback)
       : super(
@@ -35,7 +35,7 @@ class OnAnimationEnd extends HtmlEvents<AnimationEvent> {
 }
 
 /// Animation iteration event.
-class OnAnimationIteration extends HtmlEvents<AnimationEvent> {
+class OnAnimationIteration extends HtmlEvent<AnimationEvent> {
   /// Creates an instance of [OnAnimationIteration].
   OnAnimationIteration(EventCallback<AnimationEvent> callback)
       : super(

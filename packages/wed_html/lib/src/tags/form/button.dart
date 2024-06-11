@@ -12,7 +12,7 @@ class Button extends TagComponent<ButtonElement, HtmlProps> {
     this.text, {
     super.props,
     this.onClick,
-    List<HtmlEvents>? events,
+    List<HtmlEvent>? events,
     List<NodeComponent>? children,
   }) : super(
           tag: Tag.button,
@@ -26,16 +26,18 @@ class Button extends TagComponent<ButtonElement, HtmlProps> {
     super.props = const HtmlProps(),
     super.children,
     this.onClick,
-    List<HtmlEvents>? events,
+    List<HtmlEvent>? events,
   })  : text = null,
         super(
           tag: Tag.button,
-          events: onClick != null ? [...?events, OnClick(onClick)] : events,
+          events: onClick != null //
+              ? [...?events, OnClick(onClick)]
+              : events,
         );
 
   /// The text to render.
   final String? text;
 
-  ///
+  /// The callback to invoke when the button is clicked.
   final EventCallback<MouseEvent>? onClick;
 }

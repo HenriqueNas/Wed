@@ -2,7 +2,7 @@
 library wed_html;
 
 // html
-export 'src/core/html_events.dart';
+export 'src/core/html_event.dart';
 export 'src/core/html_props.dart';
 export 'src/core/node_component.dart';
 export 'src/core/tag_component.dart';

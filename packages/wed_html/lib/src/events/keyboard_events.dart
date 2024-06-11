@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:wed_html/wed_html.dart';
 
 /// Base Keyboard event.
-class BaseKeyboardEvent extends HtmlEvents<KeyboardEvent> {
+class BaseKeyboardEvent extends HtmlEvent<KeyboardEvent> {
   /// Creates an instance of [BaseKeyboardEvent].
   const BaseKeyboardEvent(
     KeyboardEvent event,
@@ -12,21 +12,21 @@ class BaseKeyboardEvent extends HtmlEvents<KeyboardEvent> {
 }
 
 /// Key down event.
-class OnKeyDown extends HtmlEvents<KeyboardEvent> {
+class OnKeyDown extends HtmlEvent<KeyboardEvent> {
   /// Creates an instance of [OnKeyDown].
   OnKeyDown(EventCallback<KeyboardEvent> callback)
       : super(event: KeyboardEvent('keydown'), callback: callback);
 }
 
 /// Key up event.
-class OnKeyUp extends HtmlEvents<KeyboardEvent> {
+class OnKeyUp extends HtmlEvent<KeyboardEvent> {
   /// Creates an instance of [OnKeyUp].
   OnKeyUp(EventCallback<KeyboardEvent> callback)
       : super(event: KeyboardEvent('keyup'), callback: callback);
 }
 
 /// Key press event.
-class OnKeyPress extends HtmlEvents<KeyboardEvent> {
+class OnKeyPress extends HtmlEvent<KeyboardEvent> {
   /// Creates an instance of [OnKeyPress].
   OnKeyPress(EventCallback<KeyboardEvent> callback)
       : super(event: KeyboardEvent('keypress'), callback: callback);

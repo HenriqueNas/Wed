@@ -2,7 +2,7 @@ import 'dart:html';
 import 'package:wed_html/wed_html.dart';
 
 /// Base UI event.
-class BaseUiEvent extends HtmlEvents<UIEvent> {
+class BaseUiEvent extends HtmlEvent<UIEvent> {
   /// Creates an instance of [BaseUiEvent].
   const BaseUiEvent(
     UIEvent event,
@@ -22,7 +22,7 @@ class OnInput extends BaseUiEvent {
 }
 
 /// Submit event.
-class OnSubmit extends HtmlEvents<UIEvent> {
+class OnSubmit extends HtmlEvent<UIEvent> {
   /// Creates an instance of [OnSubmit].
   OnSubmit(EventCallback<UIEvent> callback)
       : super(event: UIEvent('submit'), callback: callback);

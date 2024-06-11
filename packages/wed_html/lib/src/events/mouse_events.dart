@@ -3,12 +3,15 @@ import 'dart:html';
 import 'package:wed_html/wed_html.dart';
 
 /// Base mouse event.
-class BaseMouseEvent extends HtmlEvents<MouseEvent> {
+class BaseMouseEvent extends HtmlEvent<Event> {
   /// Creates an instance of [BaseMouseEvent].
-  const BaseMouseEvent(
+  BaseMouseEvent(
     MouseEvent event,
     EventCallback<MouseEvent> callback,
-  ) : super(event: event, callback: callback);
+  ) : super(
+          event: event,
+          callback: (event) => callback(event as MouseEvent),
+        );
 }
 
 /// Mouse click event.
@@ -75,7 +78,7 @@ class OnMouseLeave extends BaseMouseEvent {
 }
 
 /// Mouse wheel event (mouse wheel is scrolled).
-class OnWheel extends HtmlEvents<WheelEvent> {
+class OnWheel extends HtmlEvent<WheelEvent> {
   /// Creates an instance of [OnWheel].
   OnWheel(EventCallback<WheelEvent> callback)
       : super(event: WheelEvent('wheel'), callback: callback);

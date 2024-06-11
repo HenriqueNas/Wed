@@ -7,6 +7,8 @@ void main() {
         boxSizing: 'border-box',
         width: const Units.vw(100),
         height: const Units.vh(100),
+        alignItems: AlignItems.center,
+        justifyContent: JustifyContent.center,
         backgroundColor: Colors.lightGray,
       ).merge(const DisplayFlex.center()),
     ),
@@ -32,8 +34,8 @@ class RedBox extends Div {
   @override
   HtmlProps get props => HtmlProps(
         style: CssStyle(
-          width: const Units.px(300),
-          height: const Units.px(300),
+          width: const Units.px(400),
+          height: const Units.px(400),
           padding: const Padding.all(15),
           backgroundColor: Colors.darkBlue,
           borderRadius: const BorderRadius.all(12),
@@ -80,9 +82,13 @@ class RedBox extends Div {
             ),
           ],
         ),
-        MyButton(onClick: (_) {
-          _increase();
-        }),
+        MyButton(
+          onClick: (event) {
+            // `print` displays the message in the console.
+            print('clicked');
+            _increase();
+          },
+        ),
       ];
 }
 
