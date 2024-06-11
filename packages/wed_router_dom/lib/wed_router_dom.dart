@@ -1,5 +1,5 @@
-/// routing system for wed_core
-library wed_router;
+/// routing system for wed_html
+library wed_router_dom;
 
 export 'src/route.dart';
 export 'src/router.dart';

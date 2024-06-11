@@ -1,5 +1,5 @@
-name: wed_router
-description: routing system for wed_core
+name: wed_router_dom
+description: routing system for wed_html
 version: 0.1.0+1
 publish_to: none
 

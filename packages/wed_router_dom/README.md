@@ -10,11 +10,11 @@ routing system for wed_core
 
 **❗ In order to start using Wed Router you must have the [Dart SDK][dart_install_link] installed on your machine.**
 
-Add `wed_router` to your `pubspec.yaml`:
+Add `wed_router_dom` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  wed_router:
+  wed_router_dom:
 ```
 
 Install it:

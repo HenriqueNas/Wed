@@ -2,7 +2,7 @@ import 'dart:html';
 
 import 'package:wed_core/wed_core.dart';
 
-import 'package:wed_router/wed_router.dart';
+import 'package:wed_router_dom/wed_router_dom.dart';
 
 /// The root path for the application.
 const kRootPath = '/';
@@ -10,10 +10,11 @@ const kRootPath = '/';
 /// {@template router}
 /// The [Router] class is responsible for managing the routes in the application
 /// {@endtemplate}
-class Router extends Component {
+class Router extends SingleChildComponent {
   /// Creates a new [Router] instance with the given routes.
   Router({
     required this.routes,
+    required super.props,
   })  : assert(routes.isNotEmpty, 'You must provide at least one route'),
         assert(
           routes.any((route) => route.path == kRootPath),
@@ -58,9 +59,14 @@ class Router extends Component {
   }
 
   @override
-  List<Component> build() {
+  Component build() {
     window.console.log('Router build for path: $currentPath');
 
-    return [currentRoute.component];
+    return currentRoute.component;
+  }
+
+  @override
+  void render() {
+    window.console.log('Router render for path: $currentPath');
   }
 }
