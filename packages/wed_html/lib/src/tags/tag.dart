@@ -12,5 +12,9 @@ enum Tag {
 
   /// The `<button>` tag is used to create a button element
   /// that can trigger actions or events.
-  button;
+  button,
+
+  /// The `<aside>` tag is used to represent a section of a page that consists of
+  /// content that is tangentially related to the content around the aside element.
+  aside;
 }
